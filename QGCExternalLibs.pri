@@ -166,7 +166,7 @@ OSGDependency {
 # [OPTIONAL] Google Earth dependency. Provides Google Earth view to supplement 2D map view.
 # Only supported on Mac and Windows where Google Earth can be installed.
 #
-GoogleEarthDisableOverride {
+
     contains(DEFINES, DISABLE_GOOGLE_EARTH) {
         message("Skipping support for Google Earth view (manual override from command line)")
         DEFINES -= DISABLE_GOOGLE_EARTH
@@ -208,9 +208,7 @@ GoogleEarthDisableOverride {
     } else {
         message("Skipping support for Google Earth view (unsupported platform)")
     }
-} else {
-    message("Skipping support for Google Earth due to Issue 1157")
-}
+
 
 #
 # [REQUIRED] EIGEN matrix library
