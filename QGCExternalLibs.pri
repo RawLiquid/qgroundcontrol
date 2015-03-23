@@ -195,7 +195,17 @@ GoogleEarthDisableOverride {
                         src/ui/QGCWebView.cc
             FORMS += src/ui/QGCWebView.ui
             QT += axcontainer
-    } else {
+    } else:LinuxBuild {
+        message("Including support for Google Earth view")
+        DEFINES += QGC_GOOGLE_EARTH_ENABLED
+        HEADERS += src/ui/map3D/QGCGoogleEarthView.h \
+                    src/ui/map3D/QGCWebPage.h \
+                    src/ui/QGCWebView.h
+        SOURCES += src/ui/map3D/QGCGoogleEarthView.cc \
+                    src/ui/map3D/QGCWebPage.cc \
+                    src/ui/QGCWebView.cc
+        FORMS += src/ui/QGCWebView.ui
+     } else {
         message("Skipping support for Google Earth view (unsupported platform)")
     }
 } else {
